@@ -1,3 +1,56 @@
 #main{
-    padding: 50px 20px;
+    display: flex;
+    height: calc(100vh - 76px);
+}
+.form-wrapper{
+    width: 95vw;
+    max-width: 500px;
+    padding: 50px 30px;
+    background-color: var(--dgray);
+    border: 1px solid var(--gray);
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+}
+.form-wrapper .logo{
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+}
+.form-wrapper h1{
+    font-size: 24px;
+    margin: 2rem 0 1rem;
+}
+.form-wrapper h2{
+    font-size: 16px;
+    margin-bottom: 2rem;
+}
+form *{
+    width: 100%;
+    display: block;
+}
+.form-wrapper label{
+    text-align: left;
+    margin-bottom: .75rem;
+}
+.form-wrapper input{
+    background-color: var(--bg);
+    color: var(--text);
+    border: 1px var(--gray);
+    border-radius: .625rem;
+    height: 3.125rem;
+    margin-bottom: 1.5rem;
+    padding: .875rem 1.5rem .875rem 1.25rem;
+    font-size: .875rem;
+    line-height: .875rem;
+}
+.switch-form{
+    margin-top: 2rem;
+}
+.form-link{
+    color: var(--text);
+    text-decoration: none;
+}
+.form-link:hover{
+    text-decoration: underline;
 }

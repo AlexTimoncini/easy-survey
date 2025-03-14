@@ -24,11 +24,11 @@ router.get('/login', function(){
 router.get('/register', function(){
     buildPage('register.html',
         [
-            'register.css'
+            'login.css'
         ],
         [
             {url: 'register.js'}
-        ]).then(()=>{console.log("loadade")})
+        ]).then(()=>stopLoading())
 });
 
 router.start();

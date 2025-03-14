@@ -26,3 +26,5 @@ function fadeIn() {
         }
     }
 }
+/* API SETUP */
+const api = "https://www.taggx.it/easy_survey_api/"

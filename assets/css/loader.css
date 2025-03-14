@@ -4,7 +4,7 @@
     height: 100vh;
     left: 0;
     top: 0;
-    background-color: var(--white);
+    background-color: var(--bg);
     z-index: 1000;
 }
 .wrapper{
@@ -55,7 +55,7 @@
     width:20px;
     height:4px;
     border-radius: 50%;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(24, 228, 142, .5);
     position: absolute;
     top:62px;
     transform-origin: 50%;

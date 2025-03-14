@@ -9,13 +9,11 @@
 
 :root {
     /*COLORS*/
-    --bg: #fafafa;
-    --white: #fff;
-    --black: #000;
-    --gray: #808080;
-    --lgray: #f0f0f0;
-    --mgray: #d9d9d9;
-    --main-color: #79c3bd;
+    --bg: #090910;
+    --text: #fff;
+    --gray: #45454f;
+    --dgray: #121218;
+    --main-color: #33FFFF;
     /*FONTS*/
     --pri-font: 'Karla';
     --sec-font: 'Playfair';
@@ -33,7 +31,7 @@
 body{
     min-height: 100vh;
     font-family: var(--pri-font), sans-serif;
-    color: var(--gray);
+    color: var(--text);
     background: var(--bg);
     overflow-y: auto;
     overflow-x: hidden;
@@ -47,6 +45,7 @@ body{
     display: block;
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 .common-text{
     line-height: 1.8rem;
@@ -56,32 +55,27 @@ mark{
     color: var(--main-color);
 }
 .button{
-    display: block;
-    width: fit-content;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid var(--mgray);
-    color: var(--black);
-    background-color: transparent;
-    font-size: 13px;
-    letter-spacing: 2px;
-    padding: 10px 20px;
-    border-radius: 1px;
-    cursor: pointer;
-    transition: all .25s linear;
-}
-.button:hover{
     background-color: var(--main-color);
     color: var(--bg);
-    border-color: var(--main-color);
+    text-align: center;
+    letter-spacing: -.32px;
+    border-radius: .625rem;
+    margin-bottom: 0;
+    padding: .875rem 1.375rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+.button.secondary{
+    background-color: var(--gray);
+    color: var(--text);
 }
 h1,h2{
     line-height: 1.3;
     font-size: 50px;
     color: var(--black);
-    margin: 30px 0;
-    font-family: var(--sec-font), serif;
-    font-weight: normal;
 }
 h2{
     font-size: 34px;

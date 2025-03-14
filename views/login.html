@@ -1,3 +1,17 @@
-<div class="container" id="main">
-    <h1>login</h1>   
+<div id="main">
+    <div class="form-wrapper">
+        <div class="logo">
+            <img src="./assets/images/logo.svg" alt="alex logo" class="img-fluid">
+        </div>
+        <h1>Welcome to <mark>EasySurvey</mark></h1>
+        <h2>Login to continue.</h2>
+        <form onsubmit="return false;">
+            <label for="un">Username *</label>
+            <input type="text" id="un" name="un" required minlength="2" maxlength="20" placeholder="Your username">
+            <label for="pw">Password *</label>
+            <input type="text" id="pw" name="pw" required minlength="8" maxlength="20" placeholder="Your password">
+            <button class="button">Login</button>
+        </form>
+        <p class="switch-form">Don't have an account? <b><a href="#/register" class="form-link">Sign up here</a></b>.</p>   
+    </div>
 </div>
