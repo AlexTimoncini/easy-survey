@@ -16,6 +16,7 @@
     --gray: #45454f;
     --dgray: #121218;
     --main-color: #33FFFF;
+    --error: #f84646;
     /*FONTS*/
     --pri-font: 'Karla';
     --sec-font: 'Playfair';
@@ -101,7 +102,19 @@ h2{
 .social:hover{
     transform: scale(1.1);
 }
-
+label.error{
+    display: none;
+    width: 100%;
+    font-size: 0.9rem;
+    color: var(--error);
+}
+label.error.active{
+    display: block;
+}
+input.error{
+    margin-bottom: 3px!important;
+    border: 1px solid var(--error)!important
+}
 
 
 

@@ -26,5 +26,18 @@ function fadeIn() {
         }
     }
 }
+/* ASSIGN FORM ERROR */
+function err(input, error){
+    let label = document.getElementById(input+"_err")
+    label.innerText = error
+    label.classList.add("active")
+    document.getElementById(input).classList.add("error")
+}
+function d_err(input){
+    let label = document.getElementById(input+"_err")
+    label.classList.remove("active")
+    document.getElementById(input).classList.remove("error")
+
+}
 /* API SETUP */
 const api = "https://www.taggx.it/easy_survey_api/"

@@ -8,10 +8,18 @@ function init() {
             const request = new Request(api+"check_un_aval?"+param, {
                 method: "GET"
             });
-            const response2 = await fetch(request);
-            console.log(response2.status);
+            await fetch(request)
+            .then(response => response.json())
+            .then(data => {
+                if(data.taken){
+                    err("un", "Username already taken")
+                } else {
+                    d_err("un")
+                }
+            })
+            .catch(error => alert("Server Error, try later"));
         } else {
-            //active errore minlength
+            err("un", "Username too short")
         }
     })
 }
