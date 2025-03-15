@@ -1,6 +1,6 @@
 {
-    "name": "AlexTimoncini",
-    "short_name": "Alex",
+    "name": "EasySurvey",
+    "short_name": "EasySurvey",
     "icons": [
         {
           "src": "./assets/images/windows11/SmallTile.scale-100.png",
@@ -451,7 +451,7 @@
           "sizes": "1024x1024"
         }
       ],
-    "theme_color": "#79c3bd",
-    "background_color": "#fafafa",
+    "theme_color": "#33ffff",
+    "background_color": "#090910",
     "display": "standalone"
   }
