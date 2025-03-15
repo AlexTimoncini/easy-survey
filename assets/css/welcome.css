@@ -58,6 +58,7 @@ h2{
     border-radius: .625rem;
     padding: 1.375rem;
     border: 1px solid var(--gray);
+    min-width: 270px;
 }
 .feature-header{
     display: flex;
