@@ -63,7 +63,6 @@ async function buildPage(mainHTML, css, scriptList, isAuth=false){
     if(isAuth && document.getElementById("navbar")) document.getElementById("navbar").remove()
     if(isAuth && document.getElementById("footer")) document.getElementById("footer").remove()
     if(isAuth && !document.getElementById("navbar-auth")) await navbarAuth()
-    if(isAuth && !document.getElementById("footer-auth")) await footerAuth()
     await main()
     await scripts()
 
