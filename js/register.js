@@ -22,4 +22,36 @@ function init() {
             err("un", "Username too short")
         }
     })
+    document.getElementById("pw").addEventListener("blur", async function(){
+        let password = document.getElementById("pw").value.trim()
+        if(password.length < 8){
+            err("pw", "Password too short")
+        } else {
+            d_err("pw")
+        }
+    })
+    document.getElementById("sign-up-form").addEventListener("submit", async function(){
+        if(document.querySelectorAll("#sign-up-form input.error").length > 0){
+            return false
+        }
+        fetch(`${api}/register`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ un: document.getElementById("un").value.trim(), pw: document.getElementById("pw").value.trim() })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.result) {
+                        console.log("Registrazione riuscita, eseguo login...");
+                        //todo redirect blah blah
+                    } else {
+                        alert(data.msg)
+                    }
+                    return false;
+                })
+                .catch(err => alert("Server error, try again alter."));
+
+            return false
+        })
+
 }
