@@ -12,7 +12,7 @@ body{
     overflow-y: auto;
     width: 20%;
     padding-left: 1.5rem;
-    min-width: 200px;
+    min-width: 250px;
 }
 #content{
     border-bottom: 1px solid var(--gray);
@@ -47,8 +47,39 @@ body{
     list-style: none;
     font-size: 1.1rem;
     cursor: pointer;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    color: var(--gray)
 }
-li.item.active{
+#sidebar li.item.active{
     background-color: var(--gray);
-    color: var(--main-color)
+    color: var(--main-color);
+}
+li.item.active .icon{
+    filter: brightness(0) invert(88%) sepia(86%) saturate(6576%) hue-rotate(132deg) brightness(106%) contrast(101%);
+}
+.item .icon{
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+@media screen and (max-width: 750px){
+    #sidebar{
+        width: 50px;
+        min-width: 50px;
+        padding-left: 0;
+    }
+    #sidebar li.item{
+        padding: 10px;
+    }
+    #sidebar .item-name{
+        display: none;
+    }
+    .profile{
+        padding: 15px 5px;
+    }
+    #un{
+        display: none;
+    }
 }

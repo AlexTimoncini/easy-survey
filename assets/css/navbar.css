@@ -15,3 +15,11 @@
     background-color: var(--dgray);
     border-bottom: 1px solid var(--gray);
 }
+@media screen and (max-width: 750px){
+    #navbar-auth{
+        padding: 8px 5px;
+    }
+    #navbar-auth .logo{
+        height: 40px;
+    }
+}
