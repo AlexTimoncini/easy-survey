@@ -1,5 +1,5 @@
 /*NAVBAR*/
-#navbar{
+#navbar, #navbar-auth{
     padding: 8px 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -7,7 +7,7 @@
     height: 76px;
 }
 
-#navbar .logo{
+#navbar, #navbar-auth .logo{
     display: block;
     height: 60px;
 }

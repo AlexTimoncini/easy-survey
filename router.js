@@ -60,6 +60,10 @@ async function buildPage(mainHTML, css, scriptList, isAuth=false){
     if (!document.getElementById("loader"))await loader()
     if (!document.getElementById("navbar") && !isAuth)await navbar()
     if (!document.getElementById("footer") && !isAuth)await footer()
+    if(isAuth && document.getElementById("navbar")) document.getElementById("navbar").remove()
+    if(isAuth && document.getElementById("footer")) document.getElementById("footer").remove()
+    if(isAuth && !document.getElementById("navbar-auth")) await navbarAuth()
+    if(isAuth && !document.getElementById("footer-auth")) await footerAuth()
     await main()
     await scripts()
 
@@ -96,6 +100,17 @@ async function buildPage(mainHTML, css, scriptList, isAuth=false){
     }
     async function footer() {
         const resp = await fetch("./components/footer.html");
+        const html = await resp.text();
+        document.getElementById("app").insertAdjacentHTML("afterend", html);
+    }
+    async function navbarAuth() {
+        const resp = await fetch("./components/navbar-auth.html");
+        const html = await resp.text();
+        document.getElementById("app").insertAdjacentHTML("beforebegin", html);
+    }
+
+    async function footerAuth() {
+        const resp = await fetch("./components/footer-auth.html");
         const html = await resp.text();
         document.getElementById("app").insertAdjacentHTML("afterend", html);
     }
