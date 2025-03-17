@@ -30,7 +30,8 @@ function init() {
             d_err("pw")
         }
     })
-    document.getElementById("sign-up-form").addEventListener("submit", async function(){
+    document.getElementById("sign-up-form").addEventListener("submit", function(evt){
+        evt.preventDefault()
         if(document.querySelectorAll("#sign-up-form input.error").length > 0){
             return false
         }
