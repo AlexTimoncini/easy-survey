@@ -11,8 +11,8 @@ function init() {
             await fetch(request)
             .then(response => response.json())
             .then(data => {
-                if(data.taken){
-                    err("un", "Username already taken")
+                if(!data.taken){
+                    err("un", data.msg)
                 } else {
                     d_err("un")
                 }
