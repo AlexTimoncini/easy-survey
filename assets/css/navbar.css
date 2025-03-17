@@ -7,7 +7,7 @@
     height: 76px;
 }
 
-#navbar, #navbar-auth .logo{
+#navbar .logo, #navbar-auth .logo{
     display: block;
     height: 60px;
 }
