@@ -5,7 +5,7 @@
 .form-wrapper{
     width: 95vw;
     max-width: 500px;
-    padding: 50px 30px;
+    padding: 3rem 2rem;
     background-color: var(--dgray);
     border: 1px solid var(--gray);
     margin: auto;
