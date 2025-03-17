@@ -43,8 +43,8 @@ function init() {
                 .then(res => res.json())
                 .then(data => {
                     if (data.result) {
-                        console.log("Registrazione riuscita, eseguo login...");
-                        //todo redirect blah blah
+                        sessionStorage.setItem("token", data.token)
+                        top.location.href = domain
                     } else {
                         alert(data.msg)
                     }

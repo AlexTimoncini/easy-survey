@@ -1,7 +1,8 @@
 //ROUTER
 import { Router } from './js/classes/router.class.js'
-//let router = new Router('https://alex-dev.it');
-let router = new Router('http://127.0.0.1:5500/');
+const domain = 'https://alextimoncini.github.io/easy-survey'
+const api = "https://www.taggx.it/easy_survey_api/"
+let router = new Router(domain)
 //rotte
 router.get('/', function(){
     buildPage('welcome.html',
@@ -11,7 +12,7 @@ router.get('/', function(){
         [
             {url: 'welcome.js'}
         ]).then(()=>stopLoading())
-});
+})
 router.get('/login', function(){
     buildPage('login.html',
         [
@@ -20,7 +21,7 @@ router.get('/login', function(){
         [
             {url: 'login.js'}
         ]).then(()=>stopLoading())
-});
+})
 router.get('/register', function(){
     buildPage('register.html',
         [
@@ -29,7 +30,25 @@ router.get('/register', function(){
         [
             {url: 'register.js'}
         ]).then(()=>stopLoading())
-});
+})
+router.get('/dashboard', function(){
+    buildPage('dashboard.html',
+        [
+            'dashboard.css'
+        ],
+        [
+            {url: 'dashboard.js'}
+        ]).then(()=> {
+            validateToken().then(isValid => {
+                if (isValid) {
+                    stopLoading()
+                } else {
+                    sessionStorage.clear()
+                    top.location.href = `${domain}/easy-survey/#/login`
+                }
+            })
+        })
+})
 
 router.start();
 
@@ -115,10 +134,36 @@ function startLoading(){
         document.getElementById("loader").classList.remove("hidden")
     }
 }
-
 function stopLoading(){
     setTimeout(() => {
         document.getElementById('loader').classList.add('hidden');
         enableScroll()
     }, 500);
+}
+function validateToken() {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+        console.warn("Token vuoto, redirect login")
+        return Promise.resolve(false);
+    }
+    return fetch(`${api}/validate`, {
+        method: "GET",
+        headers: { "Authorization": `Bearer ${token}` }
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.result === 1) {
+                console.log("Token valido:", data);
+                sessionStorage.setItem("token", data.token); // Aggiorna il token se valido
+                return true;
+            } else {
+                console.warn("Token scaduto o invalido, effettua nuovamente il login.");
+                return false;
+            }
+        })
+        .catch(err => {
+            console.error(err)
+            alert("Server error, try again later")
+            return false;
+        });
 }

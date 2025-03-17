@@ -41,3 +41,4 @@ function d_err(input){
 }
 /* API SETUP */
 const api = "https://www.taggx.it/easy_survey_api/"
+const domain = 'https://alextimoncini.github.io/easy-survey'

@@ -3,6 +3,8 @@
     text-align: center;
 }
 .copyright{
-    font-size: 0.95rem;
+    text-align: center;
+    font-size: 0.85rem;
     margin-top: 50px;
+    width: 100%;
 }
