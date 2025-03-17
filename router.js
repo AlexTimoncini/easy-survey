@@ -44,9 +44,61 @@ router.get('/dashboard', function(){
                     stopLoading()
                 } else {
                     sessionStorage.clear()
-                    //top.location.href = `${domain}/#/login` TODO
+                    top.location.href = `${domain}/#/login`
+                }
+            })
+        })
+})
+router.get('/surveys', function(){
+    buildPage('surveys.html',
+        [
+            'surveys.css'
+        ],
+        [
+            {url: 'surveys.js'}
+        ], true).then(()=> {
+            validateToken().then(isValid => {
+                if (isValid) {
                     stopLoading()
-
+                } else {
+                    sessionStorage.clear()
+                    top.location.href = `${domain}/#/login`
+                }
+            })
+        })
+})
+router.get('/create', function(){
+    buildPage('create.html',
+        [
+            'create.css'
+        ],
+        [
+            {url: 'create.js'}
+        ], true).then(()=> {
+            validateToken().then(isValid => {
+                if (isValid) {
+                    stopLoading()
+                } else {
+                    sessionStorage.clear()
+                    top.location.href = `${domain}/#/login`
+                }
+            })
+        })
+})
+router.get('/create', function(){
+    buildPage('create.html',
+        [
+            'create.css'
+        ],
+        [
+            {url: 'create.js'}
+        ], true).then(()=> {
+            validateToken().then(isValid => {
+                if (isValid) {
+                    stopLoading()
+                } else {
+                    sessionStorage.clear()
+                    top.location.href = `${domain}/#/login`
                 }
             })
         })
@@ -186,6 +238,6 @@ function validateToken() {
         .catch(err => {
             console.error(err)
             alert("Server error, try again later")
-            return true; //TODO BACK TO FALSE
+            return false;
         });
 }

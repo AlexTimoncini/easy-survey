@@ -30,14 +30,20 @@ function fadeIn() {
 function err(input, error){
     let label = document.getElementById(input+"_err")
     label.innerText = error
-    label.classList.add("active")
-    document.getElementById(input).classList.add("error")
+    if(!label.classList.contains("active")){
+        label.classList.add("active")
+        document.getElementById(input).classList.add("error")
+    }
 }
 function d_err(input){
     let label = document.getElementById(input+"_err")
-    label.classList.remove("active")
-    document.getElementById(input).classList.remove("error")
-
+    if(label.classList.contains("active")){
+        label.classList.remove("active")
+    }
+    let inputEl = document.getElementById(input)
+    if(inputEl.classList.contains("active")){
+        inputEl.classList.remove("active")
+    }
 }
 /* API SETUP */
 const api = "https://www.taggx.it/easy_survey_api/"
