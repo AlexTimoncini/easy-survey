@@ -85,13 +85,13 @@ router.get('/create', function(){
             })
         })
 })
-router.get('/create', function(){
-    buildPage('create.html',
+router.get('/profile', function(){
+    buildPage('profile.html',
         [
-            'create.css'
+            'profile.css'
         ],
         [
-            {url: 'create.js'}
+            {url: 'profile.js'}
         ], true).then(()=> {
             validateToken().then(isValid => {
                 if (isValid) {
