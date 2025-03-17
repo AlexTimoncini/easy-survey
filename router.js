@@ -44,7 +44,7 @@ router.get('/dashboard', function(){
                     stopLoading()
                 } else {
                     sessionStorage.clear()
-                    top.location.href = `${domain}/easy-survey/#/login`
+                    top.location.href = `${domain}/#/login`
                 }
             })
         })
