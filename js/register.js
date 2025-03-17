@@ -35,7 +35,7 @@ function init() {
         if(document.querySelectorAll("#sign-up-form input.error").length > 0){
             return false
         }
-        fetch(`${api}/register`, {
+        fetch(`${api}register`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ un: document.getElementById("un").value.trim(), pw: document.getElementById("pw").value.trim() })
