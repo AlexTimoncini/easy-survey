@@ -44,7 +44,7 @@ function init() {
                 .then(data => {
                     if (data.result) {
                         sessionStorage.setItem("token", data.token)
-                        top.location.href = domain
+                        top.location.href = `${domain}/#/dashboard`
                     } else {
                         alert(data.msg)
                     }
