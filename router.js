@@ -38,7 +38,7 @@ router.get('/dashboard', function(){
         ],
         [
             {url: 'dashboard.js'}
-        ]).then(()=> {
+        ], true).then(()=> {
             validateToken().then(isValid => {
                 if (isValid) {
                     stopLoading()
@@ -52,14 +52,14 @@ router.get('/dashboard', function(){
 
 router.start();
 
-async function buildPage(mainHTML, css, scriptList){
+async function buildPage(mainHTML, css, scriptList, isAuth=false){
     //RUN
     startLoading()
     removeOldStyles()
     loadCss();
     if (!document.getElementById("loader"))await loader()
-    if (!document.getElementById("navbar"))await navbar()
-    if (!document.getElementById("footer"))await footer()
+    if (!document.getElementById("navbar") && !isAuth)await navbar()
+    if (!document.getElementById("footer") && !isAuth)await footer()
     await main()
     await scripts()
 
