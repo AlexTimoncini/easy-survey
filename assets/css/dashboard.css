@@ -23,6 +23,11 @@ body{
 .dashboard{
     height: 100%;
     display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    padding: 10px;
 }
 .profile{
     display: flex;
@@ -64,6 +69,38 @@ li.item.active .icon{
     width: 30px;
     height: 30px;
 }
+.stat{
+    border-radius: 10px;
+    background-color: var(--lgray);
+    padding: 10px;
+    min-width: 200px;
+}
+.stat-title{
+    font-size: 1.1rem;
+}
+.stat-body{
+    display: flex;
+    padding-top: 10px;
+}
+.stat-icon{
+    width: 40px;
+    height: 40px;
+}
+.stat-content{
+    flex-grow: 1;
+}
+.stat-counter{
+    font-size: 2rem;
+    color: var(--main-color);
+    text-align: right;
+}
+.stat-counting{
+    color: var(--gray);
+    text-align: right;
+}
+.stat-50{
+    width: calc(50% - 5px);
+}
 @media screen and (max-width: 750px){
     #sidebar{
         width: 50px;
@@ -81,5 +118,10 @@ li.item.active .icon{
     }
     #un{
         display: none;
+    }
+}
+@media screen and (max-width: 479px){
+    .stat-50{
+        width: 100%;
     }
 }
