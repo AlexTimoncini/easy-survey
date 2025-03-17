@@ -146,7 +146,7 @@ function validateToken() {
         console.warn("Token vuoto, redirect login")
         return Promise.resolve(false);
     }
-    return fetch(`${api}/validate`, {
+    return fetch(`${api}validate`, {
         method: "GET",
         headers: { "Authorization": `Bearer ${token}` }
     })
