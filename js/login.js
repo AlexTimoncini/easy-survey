@@ -31,6 +31,8 @@ function init() {
             .then(data => {
                 if (data.result) {
                     sessionStorage.setItem("token", data.token)
+                    sessionStorage.setItem("username", data.data.username)
+                    sessionStorage.setItem("user_id", data.data.id)
                     top.location.href = `${domain}/#/dashboard`
                 } else {
                     alert(data.msg)
