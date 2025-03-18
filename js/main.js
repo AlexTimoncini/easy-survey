@@ -6,12 +6,14 @@ if (hasMouse) {
     console.log("Parallax disabled: No mouse detected");
 }
 function parallax(event) {
-    this.querySelectorAll(".parallax").forEach((shift) => {
-        const position = shift.dataset.parallax
-        const x = (window.innerWidth - event.pageX * position) / 90
-        const y = (window.innerHeight - event.pageY * position) / 90
-        shift.style.transform = `translateX(${x}px) translateY(${y}px)`
-    })
+    if(document.querySelector(".parallax")){
+        this.querySelectorAll(".parallax").forEach((shift) => {
+            const position = shift.dataset.parallax
+            const x = (window.innerWidth - event.pageX * position) / 90
+            const y = (window.innerHeight - event.pageY * position) / 90
+            shift.style.transform = `translateX(${x}px) translateY(${y}px)`
+        })
+    }
 }
 window.addEventListener('scroll', fadeIn );
 function fadeIn() {
