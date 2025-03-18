@@ -227,8 +227,9 @@ function validateToken() {
         .then(res => res.json())
         .then(data => {
             if (data.result === 1) {
-                console.log("Token valido:", data);
-                sessionStorage.setItem("token", data.token); // Aggiorna il token se valido
+                sessionStorage.setItem("token", data.token)
+                sessionStorage.setItem("username", data.data.username)
+                sessionStorage.setItem("user_id", data.data.id)
                 return true;
             } else {
                 console.warn("Token scaduto o invalido, effettua nuovamente il login.");

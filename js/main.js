@@ -32,18 +32,18 @@ function fadeIn() {
 function err(input, error){
     let label = document.getElementById(input+"_err")
     label.innerText = error
-    if(!label.classList.contains("active")){
+    if(label && !label.classList.contains("active")){
         label.classList.add("active")
         document.getElementById(input).classList.add("error")
     }
 }
 function d_err(input){
     let label = document.getElementById(input+"_err")
-    if(label.classList.contains("active")){
+    if(label && label.classList.contains("active")){
         label.classList.remove("active")
     }
     let inputEl = document.getElementById(input)
-    if(inputEl.classList.contains("active")){
+    if(inputEl && inputEl.classList.contains("active")){
         inputEl.classList.remove("active")
     }
 }
