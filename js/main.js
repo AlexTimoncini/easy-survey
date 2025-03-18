@@ -43,8 +43,8 @@ function d_err(input){
         label.classList.remove("active")
     }
     let inputEl = document.getElementById(input)
-    if(inputEl && inputEl.classList.contains("active")){
-        inputEl.classList.remove("active")
+    if(inputEl && inputEl.classList.contains("error")){
+        inputEl.classList.remove("error")
     }
 }
 /* API SETUP */
