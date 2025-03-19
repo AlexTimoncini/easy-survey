@@ -1,9 +1,14 @@
+let installEvent = null
+let installButton = document.getElementById("install")
+if (installButton) {
+    installButton.style.display = "none"
+}
+if (localStorage.getItem("pwa-enabled")) {
+    startPwa()
+} else {
+    startPwa(true)
+}
 function startPwa(firstStart) {
-    let installEvent = null
-    let installButton = document.getElementById("install")
-    if (installButton) {
-        installButton.style.display = "none"
-    }
     localStorage.setItem("pwa-enabled", "true")
     if (firstStart) {
         location.reload()
@@ -19,7 +24,7 @@ function startPwa(firstStart) {
     })
     window.addEventListener("beforeinstallprompt", (e) => {
         e.preventDefault()
-        console.log("Pronto per l'installazione...")
+        console.log("Ready to install")
         installEvent = e
 
         if (installButton) {
