@@ -1,7 +1,13 @@
 {
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "content_security_policy": "script-src 'self' https://example.com; object-src 'self'",
+  "default_locale": "it",
+  "manifest_version": 2,
   "name": "EasySurvey",
   "short_name": "EasySurvey",
   "start_url": "./easy-survey/",
+  "orientation": "any",
+  "scope": "./easy-survey/",
   "icons": [
         {
           "src": "/easy-survey/assets/images/windows11/SmallTile.scale-100.png",
@@ -454,5 +460,5 @@
       ],
     "theme_color": "#33ffff",
     "background_color": "#090910",
-    "display": "standalone"
+    "display": "fullscreen"
   }
