@@ -13,7 +13,7 @@ function startPwa(firstStart) {
     }
 
     window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/easy-survey/js/service-worker.js", {scope: '/easy-survey/'})
+        navigator.serviceWorker.register("/easy-survey/js/service-worker.js", {scope: '/easy-survey/js/'})
             .then(registration => {
                 console.log("Service Worker is registered", registration);
             })
