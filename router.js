@@ -109,22 +109,34 @@ router.start();
 async function buildPage(mainHTML, css, scriptList, isAuth=false){
     //RUN
     startLoading()
-    removeOldStyles()
-    loadCss();
-    if (!document.getElementById("loader"))await loader()
+    let valid = true
+    if(isAuth){
+        await validateToken().then(isValid => {
+            if (!isValid) {
+                valid = false
+                sessionStorage.clear()
+                top.location.href = `${domain}/#/login`
+            }
+        })
+    }
+    if(valid){
+        removeOldStyles()
+        loadCss();
+        if (!document.getElementById("loader"))await loader()
 
-    //NO AUTH
-    if (!document.getElementById("navbar") && !isAuth)await navbar()
-    if (!document.getElementById("footer") && !isAuth)await footer()
-    if(!isAuth && document.getElementById("navbar-auth")) document.getElementById("navbar-auth").remove()
+        //NO AUTH
+        if (!document.getElementById("navbar") && !isAuth)await navbar()
+        if (!document.getElementById("footer") && !isAuth)await footer()
+        if(!isAuth && document.getElementById("navbar-auth")) document.getElementById("navbar-auth").remove()
 
-    //AUTH
-    if(isAuth && document.getElementById("navbar")) document.getElementById("navbar").remove()
-    if(isAuth && document.getElementById("footer")) document.getElementById("footer").remove()
-    if(isAuth && !document.getElementById("navbar-auth")) await navbarAuth()
+        //AUTH
+        if(isAuth && document.getElementById("navbar")) document.getElementById("navbar").remove()
+        if(isAuth && document.getElementById("footer")) document.getElementById("footer").remove()
+        if(isAuth && !document.getElementById("navbar-auth")) await navbarAuth()
 
-    await main()
-    await scripts()
+        await main()
+        await scripts()
+    }
 
     //Functions
     function removeOldStyles() {
