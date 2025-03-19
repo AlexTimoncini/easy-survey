@@ -5,7 +5,9 @@
   "manifest_version": 2,
   "name": "EasySurvey",
   "short_name": "EasySurvey",
+  "start_url": ".",
   "orientation": "any",
+  "scope": ".",
   "icons": [
         {
           "src": "/easy-survey/assets/images/windows11/SmallTile.scale-100.png",
