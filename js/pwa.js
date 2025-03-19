@@ -13,12 +13,9 @@ function startPwa(firstStart) {
     }
 
     window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/easy-survey/assets/js/service-worker.js")
+        navigator.serviceWorker.register("/easy-survey/assets/js/service-worker.js", {scope: '/easy-survey/'})
             .then(registration => {
                 console.log("Service Worker is registered", registration);
-                /*if (enableButton) {
-                    enableButton.remove();
-                }*/
             })
             .catch(err => {
                 console.error("Registration failed:", err);
