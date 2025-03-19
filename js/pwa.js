@@ -1,63 +1,74 @@
 let installEvent = null
 let installButton = document.getElementById("install")
-document.getElementById("install").style.display = "none"
-if (localStorage["pwa-enabled"]) {
+if (installButton) {
+    installButton.style.display = "none"
+}
+if (localStorage.getItem("pwa-enabled")) {
     startPwa()
 } else {
     startPwa(true)
 }
 function startPwa(firstStart) {
-    localStorage["pwa-enabled"] = true
-
+    localStorage.setItem("pwa-enabled", "true")
     if (firstStart) {
         location.reload()
     }
     window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/easy-survey/js/service-worker.js", {scope: '/easy-survey/js/'})
+        navigator.serviceWorker.register("/easy-survey/service-worker.js")
             .then(registration => {
-                console.log("Service Worker is registered", registration)
+                console.log("Service Worker registrato con successo", registration)
             })
             .catch(err => {
-                console.error("Registration failed:", err)
+                console.error("Registrazione del Service Worker fallita:", err)
             })
     })
     window.addEventListener("beforeinstallprompt", (e) => {
         e.preventDefault()
-        console.log("Ready to install...")
+        console.log("Pronto per l'installazione...")
         installEvent = e
-        document.getElementById("install").style.display = "initial"
+
+        if (installButton) {
+            installButton.style.display = "block"
+        }
     })
     setTimeout(cacheAll, 500)
     function cacheAll() {
         caches.open("pwa").then(function(cache) {
             let linksFound = []
-            document.querySelectorAll("a").forEach(function(el) {
-                linksFound.push(el.href)
+            document.querySelectorAll("a").forEach(el => {
+                if (el.href.startsWith(location.origin)) linksFound.push(el.href)
             })
-            cache.addAll(linksFound)
             let jsFound = []
-            document.querySelectorAll("script").forEach(function(el) {
-                linksFound.push(el.src)
+            document.querySelectorAll("script").forEach(el => {
+                if (el.src) jsFound.push(el.src)
             })
-            cache.addAll(jsFound)
             let cssFound = []
-            document.querySelectorAll("link[rel='stylesheet']").forEach(function(el) {
-                linksFound.push(el.href)
+            document.querySelectorAll("link[rel='stylesheet']").forEach(el => {
+                if (el.href) cssFound.push(el.href)
             })
-            cache.addAll(cssFound)
             let imgFound = []
-            document.querySelectorAll("img").forEach(function(el) {
-                linksFound.push(el.src)
+            document.querySelectorAll("img").forEach(el => {
+                if (el.src) imgFound.push(el.src)
             })
-            cache.addAll(imgFound)
+            cache.addAll([...linksFound, ...jsFound, ...cssFound, ...imgFound]).catch(err => {
+                console.warn("Errore durante la cache:", err)
+            })
         })
     }
     if (installButton) {
         installButton.addEventListener("click", function() {
             if (installEvent) {
                 installEvent.prompt()
+                installEvent.userChoice.then(choiceResult => {
+                    if (choiceResult.outcome === "accepted") {
+                        console.log("L'utente ha installato la PWA.")
+                        installButton.style.display = "none"
+                    } else {
+                        console.log("L'utente ha rifiutato l'installazione.")
+                    }
+                })
             } else {
-                alert("Automatic installer of PWAs not supported on this device, please download it manually from Chrome/Safari menu")
+                alert("L'installazione automatica della PWA non è supportata su questo dispositivo. Installala manualmente dal menu del browser.")
             }
         })
     }
