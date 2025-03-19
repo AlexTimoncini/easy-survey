@@ -39,14 +39,7 @@ router.get('/dashboard', function(){
         [
             {url: 'dashboard.js'}
         ], true).then(()=> {
-            validateToken().then(isValid => {
-                if (isValid) {
-                    stopLoading()
-                } else {
-                    sessionStorage.clear()
-                    top.location.href = `${domain}/#/login`
-                }
-            })
+            stopLoading()
         })
 })
 router.get('/surveys', function(){
@@ -57,14 +50,7 @@ router.get('/surveys', function(){
         [
             {url: 'surveys.js'}
         ], true).then(()=> {
-            validateToken().then(isValid => {
-                if (isValid) {
-                    stopLoading()
-                } else {
-                    sessionStorage.clear()
-                    top.location.href = `${domain}/#/login`
-                }
-            })
+            stopLoading()
         })
 })
 router.get('/create', function(){
@@ -75,14 +61,7 @@ router.get('/create', function(){
         [
             {url: 'create.js'}
         ], true).then(()=> {
-            validateToken().then(isValid => {
-                if (isValid) {
-                    stopLoading()
-                } else {
-                    sessionStorage.clear()
-                    top.location.href = `${domain}/#/login`
-                }
-            })
+            stopLoading()
         })
 })
 router.get('/profile', function(){
@@ -93,14 +72,7 @@ router.get('/profile', function(){
         [
             {url: 'profile.js'}
         ], true).then(()=> {
-            validateToken().then(isValid => {
-                if (isValid) {
-                    stopLoading()
-                } else {
-                    sessionStorage.clear()
-                    top.location.href = `${domain}/#/login`
-                }
-            })
+            stopLoading()
         })
 })
 
