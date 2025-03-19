@@ -16,10 +16,10 @@ function startPwa(firstStart) {
     window.addEventListener("load", () => {
         navigator.serviceWorker.register("/easy-survey/service-worker.js")
             .then(registration => {
-                console.log("Service Worker registrato con successo", registration)
+                console.log("Success Service Worker registration", registration)
             })
             .catch(err => {
-                console.error("Registrazione del Service Worker fallita:", err)
+                console.error("Fail Service Worker registration:", err)
             })
     })
     window.addEventListener("beforeinstallprompt", (e) => {
@@ -51,7 +51,7 @@ function startPwa(firstStart) {
                 if (el.src) imgFound.push(el.src)
             })
             cache.addAll([...linksFound, ...jsFound, ...cssFound, ...imgFound]).catch(err => {
-                console.warn("Errore durante la cache:", err)
+                console.warn("Cache error:", err)
             })
         })
     }
@@ -61,14 +61,14 @@ function startPwa(firstStart) {
                 installEvent.prompt()
                 installEvent.userChoice.then(choiceResult => {
                     if (choiceResult.outcome === "accepted") {
-                        console.log("L'utente ha installato la PWA.")
+                        console.log("PWA installed")
                         installButton.style.display = "none"
                     } else {
-                        console.log("L'utente ha rifiutato l'installazione.")
+                        console.log("PWA rejected")
                     }
                 })
             } else {
-                alert("L'installazione automatica della PWA non è supportata su questo dispositivo. Installala manualmente dal menu del browser.")
+                alert("PWAs automatic installer is not supported on this device, please install it manually from browser menu.")
             }
         })
     }
