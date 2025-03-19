@@ -1,8 +1,5 @@
 let installEvent = null
 let installButton = document.getElementById("install")
-if (installButton) {
-    installButton.style.display = "none"
-}
 if (localStorage.getItem("pwa-enabled")) {
     startPwa()
 } else {
@@ -26,10 +23,6 @@ function startPwa(firstStart) {
         e.preventDefault()
         console.log("Ready to install")
         installEvent = e
-
-        if (installButton) {
-            installButton.style.display = "block"
-        }
     })
     setTimeout(cacheAll, 500)
     function cacheAll() {
