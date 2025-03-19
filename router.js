@@ -1,5 +1,5 @@
 //ROUTER
-import { Router } from './js/classes/router.class.js'
+import { Router } from '/easy-survey/js/classes/router.class.js'
 const domain = 'https://alextimoncini.github.io/easy-survey'
 const api = "https://www.taggx.it/easy_survey_api/"
 let router = new Router(domain)
@@ -136,40 +136,40 @@ async function buildPage(mainHTML, css, scriptList, isAuth=false){
             css.forEach((url)=>{
                 let link = document.createElement('link');
                 link.rel = "stylesheet";
-                link.href = "./assets/css/"+url;
+                link.href = "/easy-survey/assets/css/"+url;
                 document.head.append(link);
             })
         }
     }
     async function loader() {
-        const resp = await fetch("./components/loader.html");
+        const resp = await fetch("/easy-survey/components/loader.html");
         const html = await resp.text();
         document.getElementById("app").insertAdjacentHTML("beforebegin", html);
     }
     async function navbar() {
-        const resp = await fetch("./components/navbar.html");
+        const resp = await fetch("/easy-survey/components/navbar.html");
         const html = await resp.text();
         document.getElementById("app").insertAdjacentHTML("beforebegin", html);
     }
     async function main() {
-        const resp = await fetch("./views/"+mainHTML);
+        const resp = await fetch("/easy-survey/views/"+mainHTML);
         const html = await resp.text();
         document.getElementById("app").innerHTML = ''
         document.getElementById("app").insertAdjacentHTML("afterbegin", html);
     }
     async function footer() {
-        const resp = await fetch("./components/footer.html");
+        const resp = await fetch("/easy-survey/components/footer.html");
         const html = await resp.text();
         document.getElementById("app").insertAdjacentHTML("afterend", html);
     }
     async function navbarAuth() {
-        const resp = await fetch("./components/navbar-auth.html");
+        const resp = await fetch("/easy-survey/components/navbar-auth.html");
         const html = await resp.text();
         document.getElementById("app").insertAdjacentHTML("beforebegin", html);
     }
 
     async function footerAuth() {
-        const resp = await fetch("./components/footer-auth.html");
+        const resp = await fetch("/easy-survey/components/footer-auth.html");
         const html = await resp.text();
         document.getElementById("app").insertAdjacentHTML("afterend", html);
     }
@@ -186,7 +186,7 @@ async function buildPage(mainHTML, css, scriptList, isAuth=false){
     async function loadScript(scripty) {
         return new Promise((resolve, reject) => {
             let newScript = document.createElement('script')
-            newScript.src = "./js/" + scripty.url
+            newScript.src = "/easy-survey/js/" + scripty.url
             if (scripty.type) newScript.type = scripty.type
             newScript.onload = () => {
                 resolve()
