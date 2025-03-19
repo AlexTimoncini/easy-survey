@@ -23,3 +23,8 @@
         height: 40px;
     }
 }
+@media screen and (max-width: 299px){
+    #navbar .logo{
+        display: none;
+    }
+}
