@@ -1,7 +1,14 @@
+let installEvent = null
+let installButton = document.getElementById("install")
+document.getElementById("install").style.display = "none"
+if (localStorage["pwa-enabled"]) {
+    startPwa()
+} else {
+    startPwa(true)
+}
 function startPwa(firstStart) {
-    let installEvent = null
-    let installButton = document.getElementById("install")
     localStorage["pwa-enabled"] = true
+
     if (firstStart) {
         location.reload()
     }
@@ -19,7 +26,7 @@ function startPwa(firstStart) {
         console.log("Ready to install...")
         installEvent = e
         document.getElementById("install").style.display = "initial"
-    });
+    })
     setTimeout(cacheAll, 500)
     function cacheAll() {
         caches.open("pwa").then(function(cache) {
@@ -41,11 +48,10 @@ function startPwa(firstStart) {
             let imgFound = []
             document.querySelectorAll("img").forEach(function(el) {
                 linksFound.push(el.src)
-            });
+            })
             cache.addAll(imgFound)
-        });
+        })
     }
-
     if (installButton) {
         installButton.addEventListener("click", function() {
             if (installEvent) {
