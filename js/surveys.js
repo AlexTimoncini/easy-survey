@@ -8,4 +8,19 @@ async function init() {
         sessionStorage.clear()
         top.location.reload()
     }
+    fetch(`${api}surveys`, {
+        method: "GET",
+        headers: { "Authorization": `Bearer ${sessionStorage.getItem("token")}` }
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.result) {
+                document.querySelector("#s_all_time .stat-counter").innerText = data.data.s_all_time
+                document.querySelector("#s_ongoing .stat-counter").innerText = data.data.s_ongoing
+            } else {
+                alert("Server error, try again alter.")
+            }
+            return false;
+        })
+        .catch(err => alert("Server error, try again alter."));
 }
