@@ -15,7 +15,7 @@ function alert(msg, title="", cancelBtn=false, callback=false, cancelCallback=fa
             </div>
         </div>
     `
-    document.querySelector(".app-container").insertAdjacentHTML("beforeend", html)
+    document.querySelector("#app").insertAdjacentHTML("beforeend", html)
     if(callBackTimer){
         document.getElementById("confirmAlert").style.setProperty("--duration", (callBackTimer / 1000).toFixed(0)+"s")
         document.getElementById("confirmAlert").classList.add("timer")
