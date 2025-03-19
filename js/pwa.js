@@ -61,7 +61,7 @@ function startPwa(firstStart) {
             if (installEvent) {
                 installEvent.prompt();
             } else {
-                vex.dialog.alert("non è possibile installare l'applicazione");
+                alert("Automatic installer of PWAs not supported on this device, please download it manually from Chrome/Safari menu");
             }
         });
     }
