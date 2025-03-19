@@ -44,15 +44,5 @@
     <script type="module" src="./router.js" data-default="true"></script>
     <script src="./js/main.js" data-default="true"></script>
     <script src="./js/pwa.js" data-default="true"></script>
-    <script data-default="true">
-        let installEvent = null;
-        let installButton = document.getElementById("install")
-        document.getElementById("install").style.display = "none"
-        if (localStorage["pwa-enabled"]) {
-            startPwa();
-        } else {
-            startPwa(true);
-        }
-    </script>
 </body>
 </html>
