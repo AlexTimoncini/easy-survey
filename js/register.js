@@ -40,21 +40,20 @@ function init() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ un: document.getElementById("un").value.trim(), pw: document.getElementById("pw").value.trim() })
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.result) {
-                        sessionStorage.setItem("token", data.token)
-                        sessionStorage.setItem("username", data.data.username)
-                        sessionStorage.setItem("user_id", data.data.id)
-                        top.location.href = `${domain}/#/dashboard`
-                    } else {
-                        alert(data.msg)
-                    }
-                    return false;
-                })
-                .catch(err => alert("Server error, try again alter."));
+            .then(res => res.json())
+            .then(data => {
+                if (data.result) {
+                    sessionStorage.setItem("token", data.token)
+                    sessionStorage.setItem("username", data.data.username)
+                    sessionStorage.setItem("user_id", data.data.id)
+                    top.location.href = `${domain}/#/dashboard`
+                } else {
+                    alert(data.msg)
+                }
+                return false;
+            })
+            .catch(err => alert("Server error, try again alter."));
 
-            return false
-        })
-
+        return false
+    })
 }
