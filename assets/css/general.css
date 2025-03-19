@@ -104,9 +104,9 @@ input.error{
 /*FONT*/
 @font-face {
     font-family: 'Playfair';
-    src: url(./easy-survey/assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf) format('truetype');
+    src: url(/easy-survey/assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf) format('truetype');
 }
 @font-face {
     font-family: 'Karla';
-    src: url(./easy-survey/assets/fonts/Karla/Karla-VariableFont_wght.ttf) format('truetype');
+    src: url(/easy-survey/assets/fonts/Karla/Karla-VariableFont_wght.ttf) format('truetype');
 }
