@@ -24,12 +24,12 @@
 }
 
 ::-moz-selection { /* Code for Firefox */
-    color: var(--white);
+    color: var(--text);
     background: var(--main-color);
 }
 
 ::selection {
-    color: var(--white);
+    color: var(--text);
     background: var(--main-color);
 }
 body{
