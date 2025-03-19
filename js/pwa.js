@@ -14,7 +14,7 @@ function startPwa(firstStart) {
         location.reload()
     }
     window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/easy-survey/service-worker.js")
+        navigator.serviceWorker.register("/easy-survey/js/service-worker.js")
             .then(registration => {
                 console.log("Success Service Worker registration", registration)
             })
