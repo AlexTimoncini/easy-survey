@@ -1,7 +1,8 @@
 {
-    "name": "EasySurvey",
-    "short_name": "EasySurvey",
-    "icons": [
+  "name": "EasySurvey",
+  "short_name": "EasySurvey",
+  "start_url": "/easy-survey/index.html",
+  "icons": [
         {
           "src": "/easy-survey/assets/images/windows11/SmallTile.scale-100.png",
           "sizes": "71x71"
