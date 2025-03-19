@@ -91,6 +91,12 @@ input.error{
     margin-bottom: 3px!important;
     border: 1px solid var(--error)!important
 }
+#install{
+    opacity: 0;
+    position: absolute;
+    right: 100%;
+    bottom: 100%;
+}
 @media screen and (max-width: 1169px){
     .container{
         max-width: 970px;
