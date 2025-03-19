@@ -1,14 +1,9 @@
-let installEvent = null
-let installButton = document.getElementById("install")
-if (installButton) {
-    installButton.style.display = "none"
-}
-if (localStorage.getItem("pwa-enabled")) {
-    startPwa()
-} else {
-    startPwa(true)
-}
 function startPwa(firstStart) {
+    let installEvent = null
+    let installButton = document.getElementById("install")
+    if (installButton) {
+        installButton.style.display = "none"
+    }
     localStorage.setItem("pwa-enabled", "true")
     if (firstStart) {
         location.reload()
