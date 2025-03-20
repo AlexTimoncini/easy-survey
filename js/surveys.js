@@ -15,8 +15,20 @@ async function init() {
         .then(res => res.json())
         .then(data => {
             if (data.result) {
-                document.querySelector("#s_all_time .stat-counter").innerText = data.data.s_all_time
-                document.querySelector("#s_ongoing .stat-counter").innerText = data.data.s_ongoing
+                document.getElementById("surveys").innerHTML = ""
+                if(data.surveys.length){
+                    data.surveys.forEach(s=>{
+                        let li = `
+                            <div class="survey-card">
+                                <div class="card-image"><img src="/easy-survey/assets/images/uploads/${data.user.id}/${s.image}" alt="${s.title}"></div>
+                                <h2>${s.title}</h2>
+                            </div>
+                        `
+                        document.getElementById("surveys").insertAdjacentHTML('beforeend', li)
+                    })
+                } else {
+                    document.getElementById("surveys").innerHTML = "<h2>No surveys created.</h2>"
+                }
             } else {
                 alert("Server error, try again alter.")
             }
