@@ -27,7 +27,7 @@ async function init() {
                         document.getElementById("surveys").insertAdjacentHTML('beforeend', li)
                     })
                 } else {
-                    document.getElementById("surveys").innerHTML = "<h2>No surveys created.</h2>"
+                    document.getElementById("surveys").innerHTML = '"<h2 class="none">No survey created.</h2>"'
                 }
             } else {
                 alert("Server error, try again alter.")
