@@ -19,6 +19,7 @@ body{
     height: calc(100vh - 76px);
     overflow-y: auto;
     flex-grow: 1;
+    padding: 20px;
 }
 .dashboard{
     height: 100%;
@@ -129,4 +130,25 @@ li.item.active .icon{
     .stat-50{
         width: 100%;
     }
+}
+{
+}
+#content label{
+    text-align: left;
+    margin-bottom: .75rem;
+    width: 100%;
+    display: block;
+}
+#content input{
+    background-color: var(--bg);
+    color: var(--text);
+    border: 1px var(--gray);
+    border-radius: .625rem;
+    height: 3.125rem;
+    margin-bottom: 1.5rem;
+    padding: .875rem 1.5rem .875rem 1.25rem;
+    font-size: .875rem;
+    line-height: .875rem;
+    width: 100%;
+    display: block;
 }
