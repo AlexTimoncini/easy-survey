@@ -59,6 +59,7 @@ router.get('/create', function(){
             'create.css'
         ],
         [
+            {url: 'simpleUpload.min.js'},
             {url: 'create.js'}
         ], true).then(()=> {
             stopLoading()

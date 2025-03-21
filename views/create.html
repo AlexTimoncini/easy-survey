@@ -12,6 +12,23 @@
         </ul>
     </aside>
     <div id="content">
-        <h1>create</h1>
+        <h1 class="section-title">Create your own survey!</h1>
+        <h2 class="section-subtitle">General information</h2>
+        <form id="general-survey" novalidate="" method="post">
+            <label for="title">Title *</label>
+            <input type="text" id="title" required minlength="2" maxlength="512" placeholder="Survey Title">
+            <label for="hero">Title Image</label>
+            <div id="progress"></div>
+            <div id="progressBar"></div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="file" class="input-file my-2" id="hero">
+                </div>
+                <div class="col-6">
+                    <input type="text" class="text-right" readonly>
+                </div>
+            </div>
+            <button class="button">Login</button>
+        </form>
     </div>
 </div>
